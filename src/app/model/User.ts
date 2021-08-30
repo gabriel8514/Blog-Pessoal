@@ -2,7 +2,7 @@
 
 import { Postagem } from "./Postagem"
 
-export class user { // cria uma classe 
+export class User { // cria uma classe 
     public id: number 
     public nome: string 
     public usuario: string

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
-import { userLogin } from '../model/UserLogin';
+import { UserLogin } from '../model/UserLogin';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { AuthService } from '../service/auth.service';
 })
 export class EntrarComponent implements OnInit {
 
-  userLogin: userLogin = new userLogin() 
+  userLogin: UserLogin = new UserLogin() 
 
   constructor(
     private auth: AuthService,
@@ -23,7 +23,9 @@ export class EntrarComponent implements OnInit {
   }
 
   entrar(){
-    this.auth.entrar(this.userLogin).subscribe((resp: userLogin)=>{
+    console.log(this.userLogin) 
+
+    this.auth.entrar(this.userLogin).subscribe((resp: UserLogin)=>{
       this.userLogin = resp
 
       environment.token = this.userLogin.token
@@ -36,12 +38,12 @@ export class EntrarComponent implements OnInit {
       console.log(environment.foto)
       console.log(environment.id)
 
-      this.router.navigate(["/inicio"]) 
-      
+      this.router.navigate(['/inicio']) 
+
     }, erro =>{
       if(erro.status == 401){ // no video da plataforma estava com o erro 500 
         alert("Usuario ou senha estão incorreto!")
       }
-    })
+    } )
   }
 }

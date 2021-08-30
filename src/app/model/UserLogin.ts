@@ -1,4 +1,4 @@
-export class userLogin { // cria uma classe 
+export class UserLogin { // cria uma classe 
     public id: number 
     public nome: string 
     public usuario: string
