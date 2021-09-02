@@ -3,3 +3,11 @@
 html{
     scroll-behavior: smooth;
 }
+
+.font-64{
+    font-size: 54pt;
+}
+
+.fs-18{
+    font-size: 18pt;
+}
